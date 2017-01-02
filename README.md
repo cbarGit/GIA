@@ -1,7 +1,7 @@
 GIF IT ALL
 ==========
 
-####It is an app based on `electron` that search instantly a gif every time you type a character in the field.
+####It is an app based on `electron` that search instantly gifs every time you type a character in the field.
 
 Inspired by this woman **Mary Rose Cook**, from this video:
 https://www.youtube.com/watch?v=I8vLt5AB2TI
