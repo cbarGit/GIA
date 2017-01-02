@@ -1,0 +1,63 @@
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.gifted{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+@@font-face {
+    font-family: 'FuturaRennerRegular';
+    src: url('fonts/FuturaRennerRegular.ttf');
+}
+#title{
+    margin: 0;
+    text-align: center;
+    font-size: 48px;
+    color: #ffffff;
+    background-color: #000000;
+}
+
+#inputarea0{
+    width: 100%;
+    height: 30px;
+    resize: none;
+    font-size: 22px;
+    font-family:sans-serif;
+}
+
+#gifarea{
+    background-color: #313131;
+    width: 100%;
+    height: 100%;
+}
+
+#wrap{
+    position: relative;
+}
+
+footer{
+    height: 36px;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    padding: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#footerImg{
+    height: 37px;
+    width: 101px;
+    float: right;
+    margin: 0;
+}
