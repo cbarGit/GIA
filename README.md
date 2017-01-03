@@ -15,3 +15,7 @@ https://fontlibrary.org/en/font/futura-renner
 Next steps:
 - Add a context menu for saving gif. --> HIGH PRIORITY
 - Figure out a better download of gif, now it is limited to 10 gifs. --> MEDIUM PRIORITY
+
+
+-----------------------------------------------------------------------------
+![alt tag](https://raw.githubusercontent.com/cbarGit/GIA/master/img/logo.png)
