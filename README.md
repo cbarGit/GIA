@@ -6,6 +6,8 @@ GIF IT ALL
 Inspired by this woman **Mary Rose Cook**, from this video:
 https://www.youtube.com/watch?v=I8vLt5AB2TI
 
+![Output sample](https://raw.githubusercontent.com/cbarGit/GIA/master/img/sample.gif)
+
 It uses the giphy API, the public beta one, from here:
 > https://github.com/Giphy/GiphyAPI .
 
