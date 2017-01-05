@@ -1,3 +1,5 @@
+'use strict';
+
 const {app, BrowserWindow} = require('electron');
 
 let mainWindow;
@@ -15,6 +17,11 @@ app.on('activate', () => {
         createWindow();
     }
 });
+
+//disable menu bar
+/*app.on('browser-window-created',function(e,window){
+    window.setMenu(null);
+});*/
 
 function createWindow() {
 

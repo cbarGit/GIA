@@ -1,7 +1,45 @@
 global.$ = $;
 
 const {remote} = require('electron');
-const {BrowserWindow} = remote;
+const {BrowserWindow, Menu, MenuItem, dialog} =remote;
+
+// menu implementation
+const menu = new Menu()
+menu.append(new MenuItem({label:'Save GIF as', click(){
+    var tag = document.elementFromPoint(rightClickPosition.x, rightClickPosition.y);
+    var srcfile = tag.src;
+
+    console.log(srcfile);
+    save(srcfile);
+        }
+    })
+)
+//contextmenu (right-click to save)
+window.addEventListener('contextmenu', (e)=>{
+    e.preventDefault()
+    rightClickPosition = {x: e.x, y: e.y}
+    menu.popup(remote.getCurrentWindow())
+}, false)
+
+
+//save gif function
+function save(url){
+    var filename = url.substring(url.lastIndexOf("/") + 1).split("?")[0];
+    var xhr = new XMLHttpRequest();
+    xhr.responseType = 'blob';
+    xhr.onload = function() {
+        var a = document.createElement('a');
+        a.href = window.URL.createObjectURL(xhr.response); // xhr.response is a blob
+        a.download = filename; // Set the file name.
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        delete a;
+    };
+    xhr.open('GET', url);
+    xhr.send();
+}
+
 
 //search gifs by string, limit is set to 10
 function searchGif(queryArg, limitArg, langArg, xhr){
@@ -11,7 +49,7 @@ function searchGif(queryArg, limitArg, langArg, xhr){
     var limit = String(limitArg)
     var lang = String(langArg)
     console.log(limit,lang,query);
-    if(xhr && xhr.readyState < 3){
+    if(xhr && xhr.readyState < 4){
         xhr.abort();
     }
     xhr = $.get("http://api.giphy.com/v1/gifs/search?q="+query+api_key+"&limit="+limit+"&lang="+lang);
@@ -23,21 +61,32 @@ function searchGif(queryArg, limitArg, langArg, xhr){
 
 //iteration in get response, through gifs, setting them in the area of output
 function showGif(data){
-    var len = data.pagination.count
-    for (i = 0; i < len; i++){
+    var dataLength = data.pagination.count
+    var textLength = $('#inputarea').val().length
+    if (dataLength == 0 && textLength != 0){
+        $('#gifarea').append('<p id="nogifs">GIFs not found</p>')
+    }
+    for (i = 0; i < dataLength; i++){
         var parsed = data.data[i].images.original.url
-        $('#gifarea').prepend('<img class="gifted" src='+parsed+'>');
+        $('#gifarea').prepend('<img id="img'+i+'" class="gifted" src='+parsed+'>');
     }
 
 }
 
-//every time the input field will change and with a delay, a function will be called, after the gif area has been cleared
+//every time the input fields will change and with a delay,the gif area will be cleared  and a function will be called
 $(document).ready(function(){
-    $('#inputarea0').focus();
+    $('#inputarea').focus();
     var xhr;
-    $("#inputarea0").on('input',function(e) {
+    $("#inputarea").on('input',function(e) {
+        var quantity = $('#quantity').val();
         $('#gifarea').empty();
-        var query = $("#inputarea0").val();
-        searchGif(query, 10, "en", xhr);
+        var query = $("#inputarea").val();
+        searchGif(query, quantity, "en", xhr);
     }).delay(300);
+    $("#quantity").on('input',function(e) {
+        var quantity = $('#quantity').val();
+        $('#gifarea').empty();
+        var query = $("#inputarea").val();
+        searchGif(query, quantity, "en", xhr);
+    }).delay(800);
 });

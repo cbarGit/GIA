@@ -13,8 +13,8 @@ The font used in the app:
 https://fontlibrary.org/en/font/futura-renner
 
 Next steps:
-- Add a context menu for saving gif. --> HIGH PRIORITY
-- Figure out a better download of gif, now it is limited to 10 gifs. --> MEDIUM PRIORITY
+- Add a context menu for saving gif. --> **done**.
+- Figure out a better download of gif, now it is limited to 10 gifs. --> **done**. No more limited, there is a spinbox.
 
 
 -----------------------------------------------------------------------------
