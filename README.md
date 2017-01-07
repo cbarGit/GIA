@@ -10,14 +10,16 @@ https://www.youtube.com/watch?v=I8vLt5AB2TI
 
 It uses the giphy API, the public beta one, from here:
 > https://github.com/Giphy/GiphyAPI .
+*If you have a private key, **change the public one with that**. The public beta key should be used only for development.*
+Look inside `js/utils.js`.
 
 The font used in the app:
 https://fontlibrary.org/en/font/futura-renner
 
 Next steps:
+- Add language choice.
 - Add a context menu for saving gif. --> **done**.
 - Figure out a better download of gif, now it is limited to 10 gifs. --> **done**. No more limited, there is a spinbox.
-
 
 -----------------------------------------------------------------------------
 ![alt tag](https://raw.githubusercontent.com/cbarGit/GIA/master/img/logo.png)
