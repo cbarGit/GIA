@@ -42,12 +42,12 @@ function save(url){
 
 
 //search gifs by string, limit is set to 10
-function searchGif(queryArg, limitArg, langArg, xhr){
+function searchGif(queryArg, limitArg, xhr){
     var string = "http://api.giphy.com/v1/gifs/search?q="
     var query = String(queryArg)
     var api_key = "&api_key=dc6zaTOxFJmzC"
     var limit = String(limitArg)
-    var lang = String(langArg)
+    var lang = $("#lang").val();
     console.log(limit,lang,query);
     if(xhr && xhr.readyState < 4){
         xhr.abort();
@@ -68,25 +68,35 @@ function showGif(data){
     }
     for (i = 0; i < dataLength; i++){
         var parsed = data.data[i].images.original.url
-        $('#gifarea').prepend('<img id="img'+i+'" class="gifted" src='+parsed+'>');
+        $('#gifarea').append('<img id="img'+i+'" class="gifted" src='+parsed+'>');
     }
 
 }
 
 //every time the input fields will change and with a delay,the gif area will be cleared  and a function will be called
 $(document).ready(function(){
+    var stringLang = [
+        {lang: "Spanish", code: "es"},
+        {lang: "Portuguese", code: "pt"},
+        {lang: "French", code: "fr"},
+        {lang: "German", code: "de"},
+        {lang: "Italian", code: "it"}
+    ];
+    for (i = 0; i < stringLang.length; i++ ){
+        $('#lang').append('<option value="'+stringLang[i].code+'">'+stringLang[i].lang+'</option>')
+    }
     $('#inputarea').focus();
     var xhr;
     $("#inputarea").on('input',function(e) {
         var quantity = $('#quantity').val();
         $('#gifarea').empty();
         var query = $("#inputarea").val();
-        searchGif(query, quantity, "en", xhr);
+        searchGif(query, quantity, xhr);
     }).delay(300);
     $("#quantity").on('input',function(e) {
         var quantity = $('#quantity').val();
         $('#gifarea').empty();
         var query = $("#inputarea").val();
-        searchGif(query, quantity, "en", xhr);
+        searchGif(query, quantity, xhr);
     }).delay(800);
 });
