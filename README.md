@@ -20,7 +20,7 @@ Next steps:
 - ~~Add language choice.~~
 - ~~Add a context menu for saving gif.~~
 - ~~Figure out a better download of gif, now it is limited to 10 gifs.~~ --> No more limited, there is a spinbox.
-- Better bandwith usage.
+- Better bandwidth usage.
 
 
 -----------------------------------------------------------------------------
