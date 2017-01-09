@@ -6,6 +6,8 @@ GIF IT ALL
 Inspired by this woman **Mary Rose Cook**, from this video:
 https://www.youtube.com/watch?v=I8vLt5AB2TI
 
+**Version 0.1**
+
 ![Output sample](https://raw.githubusercontent.com/cbarGit/GIA/master/img/sample.gif)
 
 It uses the giphy API, the public beta one, from here:
@@ -21,7 +23,7 @@ Next steps:
 - ~~Add a context menu for saving gif.~~
 - ~~Figure out a better download of gif, now it is limited to 10 gifs.~~ --> No more limited, there is a spinbox.
 - Better bandwidth usage.
-
+- Add package binaries.
 
 -----------------------------------------------------------------------------
 ![alt tag](https://raw.githubusercontent.com/cbarGit/GIA/master/img/logo.png)
