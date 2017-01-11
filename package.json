@@ -1,5 +1,13 @@
-{
-  "name"    : "Uma",
-  "version" : "0.1.0",
-  "main"    : "main.js"
+
+  "name": "GIA",
+  "version": "0.1.0",
+  "main": "main.js",
+  "devDependencies": {
+    "electron-packager": "^8.4.0"
+  },
+  "scripts": {
+    "start" : "electron .",
+    "build": "electron-packager . GIA --platform=win32 --platform=darwin --platform=linux --version=1.4.13 --arch=x64 --overwrite --out=./bin/."
+  },
+  "author" : "cbarGit https://github.com/cbarGit"
 }

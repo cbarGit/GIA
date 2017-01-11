@@ -22,8 +22,9 @@ Next steps:
 - ~~Add language choice.~~
 - ~~Add a context menu for saving gif.~~
 - ~~Figure out a better download of gif, now it is limited to 10 gifs.~~ --> No more limited, there is a spinbox.
+- ~~Add package binaries.~~ Not possible, but you can do it with `npm build` in the root folder (but before install `electron-packager` with `npm install electron-packager` command).
 - Better bandwidth usage.
-- Add package binaries.
+
 
 -----------------------------------------------------------------------------
 ![alt tag](https://raw.githubusercontent.com/cbarGit/GIA/master/img/logo.png)
